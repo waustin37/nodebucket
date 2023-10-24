@@ -1,0 +1,25 @@
+.toolbar{
+ margin-top: 75px;
+ color: white;
+}
+.title{
+    color: white;
+    font-size: 62px;
+    font-weight: 400;
+    font-family: 'Oswald', sans-serif;;
+    text-decoration: underline;
+    text-decoration-thickness: 2pt;
+    margin-top: 50px;
+}
+.logo{
+    margin-top: -50px;
+}
+.nav-button{
+    margin-right: 30px;
+    font-size: 14pt;
+}
+.nav-button:hover{
+    text-decoration: underline;
+}
+
+

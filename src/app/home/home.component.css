@@ -1,0 +1,219 @@
+.box {
+  margin-left: 8%;
+  margin-top: -100px;
+  width: 45%;
+  background-color: #2B2D33;
+  color: #fff;
+  border: 1px solid #8492A6;
+  padding: 20px;
+  text-align: center;
+  position: relative;
+  box-shadow: 0px 8px 32px rgba(0, 0, 0, 0.4);
+}
+
+h1 {
+  background-color: #2B2D33;
+  font-family: 'Josefin Slab', serif;
+  font-size: 48px;
+  font-weight: bold;
+}
+h2 {
+  background-color: #2B2D33;
+  font-family: 'Josefin Slab', serif;
+  font-size: 24px;
+  font-weight: 100;
+}
+
+.sign-in-button {
+  background-color: #6d738d;
+  margin-top: 20px;
+  color: white;
+  border: 1pt solid rgb(223, 222, 234);
+  border-radius: 10px;
+  padding: 10px 20px;
+  font-weight: 500;
+  font-size: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s, transform 0.2s, box-shadow 0.2s;
+  transform: translate(0, 0);
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.sign-in-button:hover {
+  background-color: #2f3c64; 
+  color: #fff;
+  transform: translate(0, -5px);
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
+}
+
+.feature-box {
+  background-color: #9B813A;
+  color: #fff;
+  border: 3px solid #8492A6;
+  padding: 30px;
+  text-align: left;
+  width: 33%;
+  margin-left: 11%;
+  margin-top: 8%;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.4);
+  position: absolute;
+
+}
+
+.feature-box h2 {
+  background-color: #9B813A;
+  font-size: 30px;
+  font-weight: 600;
+}
+
+.feature-box ul {
+  background-color: #9B813A;
+  list-style-type: none; 
+  padding-left: 20px; 
+}
+
+.feature-box li {
+  background-color: #9B813A;
+  line-height: 1;
+  font-size: 24px;
+  text-align: left;
+}
+
+.feature-box ul li::before {
+  content: "\2022"; 
+  color: #FFC82C;
+  font-size: 45px;
+  margin-right: 10px;
+}
+
+.todo-box {
+  position: relative;
+  border: 3px solid white;
+  border-radius: 10%;
+  width: 40%;
+  height: 440px;
+  background-color: #858CAB;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  padding: 20px;
+  margin-left: 55%;
+  box-shadow: 0px 8px 32px rgba(0, 0, 0, 0.4);
+}
+
+.outer-rectangle {
+  width: 90%;
+  height: 95%;
+  background-color: #2B2D33;
+  display: flex;
+  padding: 10px;
+  margin: auto;
+  border: .5pt solid rgb(203, 204, 221);
+  box-shadow: 0px 8px 32px rgba(0, 0, 0, 0.4);
+}
+
+.inner-box {
+  margin: auto auto;
+  display: flex;
+  width: 80%;
+
+}
+
+.column {
+  width: 50%;
+  background-color: #3D4D8A;
+  padding: 10px;
+  text-align: center;
+  color: #fff;
+  border: 1px solid #8492A6;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+.buttons {
+  background-color: #2B2D33;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 60%;
+}
+
+button {
+  background-color: #4d515e;
+  color: #fff;
+  border: 1 solid white;
+  margin: 5px;
+  cursor: not-allowed;
+}
+
+.blue-circle {
+  width: 80px;
+  height: 80px;
+  margin-left: 8%;
+  margin-top: 7%;
+  background-color: #0B2BA1;
+  border-radius: 50%;
+  position: absolute;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.4);
+}
+.blue-circle-2 {
+  width: 100px;
+  height: 100px;
+  margin-left: 15%;
+  margin-top: 5%;
+  background-color: #0B2BA1;
+  border-radius: 50%;
+  position: absolute;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.4);
+}
+.blue-circle-3 {
+  width: 100px;
+  height: 100px;
+  margin-left: 41%;
+  margin-top: 19%;
+  background-color: #0B2BA1;
+  border-radius: 50%;
+  position: absolute;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.4);
+}
+.blue-circle-4 {
+  width: 100px;
+  height: 100px;
+  margin-left: 88%;
+  margin-top: 23%;
+  background-color: #0B2BA1;
+  border-radius: 50%;
+  position: absolute;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.4);
+}
+.blue-circle-5 {
+  width: 150px;
+  height: 150px;
+  margin-left: 52%;
+  margin-top: -3%;
+  background-color: #0B2BA1;
+  border-radius: 50%;
+  position: absolute;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.4);
+}
+.gold-box-1 {
+  width: 80px;
+  height: 190px;
+  margin-left: 8%;
+  margin-top: 5%;
+  background-color: #FFC82C;
+  border: 1pt solid #858CAB;
+  position: absolute;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.4);
+}
+.gold-box-2 {
+  width: 80px;
+  height: 290px;
+  margin-left: 93%;
+  margin-top: -2%;
+  background-color: #FFC82C;
+  border: 1pt solid #858CAB;
+  position: absolute;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.4);
+}
+
+

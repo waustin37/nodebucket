@@ -1,1 +1,24 @@
-<nav></nav>
+<nav>
+    <mat-toolbar class="toolbar">
+        <mat-toolbar-row>
+            <div style="width: 80%;">
+              <div fxLayout="row wrap" fxLayoutAlign="end-start" style="float: right;">
+                <div style="margin-left: 150px;" >
+                    <a class="title" href="/">NodeBucket</a>
+                    <img class ="logo" src="./assets/logo.png" height="80"/>
+                </div>
+              </div>
+            </div>
+
+        </mat-toolbar-row>
+        <mat-toolbar-row>
+            <div style="width: 80%;">
+                <div fxLayout="row wrap" fxLayoutAlign="end-start" style="float: right;">
+                  <button class="nav-button" mat-button routerLink="/">Home</button>
+                  <button class="nav-button" mat-button routerLink="/contact">Contact</button>
+                  <button class="nav-button" mat-button routerLink="/about">About</button>
+                </div>
+              </div>
+        </mat-toolbar-row>
+      </mat-toolbar>
+</nav>

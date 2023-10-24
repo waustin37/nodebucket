@@ -1,0 +1,49 @@
+<br><br>
+<div fxLayout="column">
+    <div fxFlex>
+  
+      <div class= "sign-in-container container">
+  
+        <div class="container">
+          <h1 class="container">Sign In</h1>
+
+        </div>
+  
+        <mat-card-subtitle class="container">
+        Enter a Valid Employee ID to Proceed
+        </mat-card-subtitle>
+  
+        <mat-card-content class="container" >
+          <div class="message-error" *ngIf="errorMessage">
+            {{ errorMessage }}
+          </div>
+  
+          <div *ngIf="form['employeeId'].errors && form['employeeId'].touched">
+            <div class="message-error">
+              Employee ID must be a numeric value.
+            </div>
+          </div>
+  
+          <mat-card style="box-shadow: none;">
+            <form [formGroup]="signInForm" (ngSubmit)="onSubmit(); signInForm.reset()">
+  
+              <div class="container">
+                <div  class="container">
+                  <label class="container" for="txtemployeeId" id="lblemployeeId">Employee ID</label>
+                  <input class="input" type="text" required formControlName="employeeId" id="txtemployeeId" name="txtemployeeId" />
+                </div>
+              </div>
+  
+              <mat-card-actions class="container">
+                <button class="btnsubmit" type="submit" [disabled]='!signInForm.valid'>Submit</button>
+              </mat-card-actions>
+  
+            </form>
+          </mat-card>
+  
+        </mat-card-content>
+      </div>
+  
+    </div>
+  </div>
+  

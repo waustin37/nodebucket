@@ -1,0 +1,67 @@
+.sign-in-container{
+    width: 35%;
+    margin: auto auto;
+    border: 3pt solid black;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);;
+  }
+  .container{
+    background-color: #858CAB;
+  }
+  .message-error{
+    margin: 10px 0;
+    padding: 12px;
+    color: #d8000C;
+    background-color: #ffd2d2;
+  }
+
+  .sign-in-container > mat-card-title, mat-card-subtitle{
+    text-align: center;
+    font-family: 'Josefin Slab', serif;
+  }
+  
+  .btnsubmit{
+    background-color: #6d738d;
+    margin-top: 20px;
+    margin: auto auto;
+    color: white;
+    border: 1pt solid rgb(223, 222, 234);
+    border-radius: 10px;
+    padding: 10px 20px;
+    font-weight: 500;
+    font-size: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s, transform 0.2s, box-shadow 0.2s;
+    transform: translate(0, 0);
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+  }
+
+  .btnsubmit:hover{
+    background-color: #2f3c64; 
+    color: #fff;
+    transform: translate(0, -5px);
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
+  }
+
+  .input{
+    margin: auto auto;
+    margin-bottom: 20px;
+    border: 2pt solid black;
+    background-color: #b0b6d2;
+    width: 80%;
+    font-size: 20pt;
+    font-weight: 600;
+    padding: 5pt;
+  }
+
+  #lblStudentId{
+    margin-top: 20px;
+    font-size: 14pt;
+  }
+
+  h1{
+    text-align: center;
+    font-family: 'Josefin Slab', serif;
+    padding-top: 20px;
+    font-size: 24pt;
+
+  }

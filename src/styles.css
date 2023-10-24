@@ -1,1 +1,9 @@
-/* You can add global styles to this file, and also import other style files */
+/* Import the Angular Material theming module */
+@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+
+*{
+  font-family: 'Josefin Slab', serif;
+  background-color: #3D4D8A;
+}
+
+
