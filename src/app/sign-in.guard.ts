@@ -27,7 +27,7 @@ export class signInGuard implements CanActivate {
       return true;
     } else {
       console.log('User is not signed in');
-      this.router.navigate(['/session/sign-in']);
+      this.router.navigate(['/sign-in']);
       return false;
     }
   }

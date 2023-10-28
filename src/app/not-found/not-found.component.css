@@ -1,0 +1,29 @@
+.image{
+    margin-left: 12%;
+    margin-top: -3%;
+    height: 500px;
+    position: absolute;
+}
+.message {
+    border: 1pt solid  rgb(223, 222, 234);
+    box-shadow: 5px 5px 15px rgb(170, 171, 225);
+    width: 25%;
+    height: 200px;
+    margin-left: 10%;
+    margin-top: -7%;
+    background-color: #9B813A;
+    padding: 20px;
+    font-size: 18pt;
+    color: white;
+    text-align: center;
+    line-height: 1.6;
+}
+.gray-box-1{
+    height: 450px;
+    width: 650px;
+    background-color: #858CAB;
+    border: 1pt solid  rgb(223, 222, 234);
+    box-shadow: 15px 15px 15px rgb(64, 64, 69);
+    margin-left: 30%;
+    margin-top: 3%;
+}

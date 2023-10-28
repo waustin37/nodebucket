@@ -3,15 +3,28 @@
  * Author: Professor Krasso
  * Date: 8/5/2023
  */
-'use strict'
+
 
 // Require statements
-const express = require('express')
-const createServer = require('http-errors')
-const path = require('path')
+const express = require('express');
+const createServer = require('http-errors');
+const path = require('path');
+const swaggerUI = require('swagger-ui-express');
+const swaggerJS = require('swagger-jsdoc');
+const http = require('http');
+const mongoose = require('mongoose');
+const employeeAPI = require('./routes/employee-routes');
 
 // Create the Express app
-const app = express()
+let app = express()
+
+//Create MongoDB Connection
+const CONN = 'mongodb+srv://waustin37:wa16171617@cluster0.hkbvlmn.mongodb.net/nodebucketDB?retryWrites=true&w=majority';
+mongoose.connect(CONN).then(() => {
+    console.log('Connection to the database was successful');
+}).catch(err => {
+    console.log('MongoDB Error: ' + err.message);
+});
 
 // Configure the app
 app.use(express.json())
@@ -19,10 +32,20 @@ app.use(express.urlencoded({ extended: true }))
 app.use(express.static(path.join(__dirname, '../dist/nodebucket')))
 app.use('/', express.static(path.join(__dirname, '../dist/nodebucket')))
 
-// error handler for 404 errors
-app.use(function(req, res, next) {
-  next(createServer(404)) // forward to error handler
-})
+const options = {
+  definition: {
+      openapi: '3.0.0',
+      info: {
+          title: 'NodeBucket',
+          version: '1.0.0',
+      },
+  },
+  apis: ['./server/routes/employee-routes.js'], 
+}
+const openapiSpecifications = swaggerJS(options);
+
+app.use('/api-docs', swaggerUI.serve, swaggerUI.setup(openapiSpecifications));
+app.use('/api', employeeAPI);
 
 // error handler for all other errors
 app.use(function(err, req, res, next) {

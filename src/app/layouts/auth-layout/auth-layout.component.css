@@ -1,0 +1,5 @@
+main{
+    min-height: 70vh; /* Ensure the container takes up at least the full viewport height */
+    display: flex;
+    flex-direction: column;
+}

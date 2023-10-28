@@ -1,0 +1,17 @@
+.footer {
+    background-color: #495584; /* Lighter background color */
+    text-align: center;
+    padding: 10px 0;
+    color: white;
+    
+  }
+  
+  .footer a {
+    text-decoration: none;
+    color: #ffffff; /* Text color matching the background of the main body */
+  }
+  
+  .footer a:hover {
+    text-decoration: underline;
+  }
+  
