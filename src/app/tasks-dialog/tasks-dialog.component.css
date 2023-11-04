@@ -1,0 +1,64 @@
+.card{
+ background-color: #fff;
+}
+.new-task-form{
+    padding: 50px;
+    background-color: #858CAB;
+    border: 2pt solid white;
+    font-family: 'Josefin Slab', serif;
+}
+
+h1 {
+    background-color: #858CAB;
+    font-family: 'Josefin Slab', serif;
+    font-size: 50px;
+    margin-bottom: 20px;
+}
+
+input{
+    background-color: rgb(161, 181, 198);
+    border: 1pt solid black;
+    margin-bottom: 20px;
+}
+
+button{
+        background-color: #6d738d;
+        margin-top: 20px;
+        color: white;
+        border: 1pt solid rgb(223, 222, 234);
+        border-radius: 10px;
+        padding: 10px 20px;
+        font-weight: 500;
+        font-size: 20px;
+        cursor: pointer;
+        transition: background-color 0.3s, color 0.3s, transform 0.2s, box-shadow 0.2s;
+        transform: translate(0, 0);
+        box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+      }
+      
+      button:hover {
+        background-color: #2f3c64; 
+        color: #fff;
+        transform: translate(0, -5px);
+        box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
+      }
+      .input{
+        margin: auto auto;
+        margin-bottom: 20px;
+        border: 2pt solid black;
+        background-color: #b0b6d2;
+        width: 80%;
+        font-size: 20pt;
+        padding: 15pt;
+      }
+
+.message-error{
+   margin: 10px 0;
+   padding: 12px;
+   font-size: 14pt;
+   color: #d8000C;
+   background-color: #ffd2d2;
+}
+::placeholder {
+  color: #403f45;
+}

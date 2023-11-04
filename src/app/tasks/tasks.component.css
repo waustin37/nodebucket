@@ -1,0 +1,101 @@
+.container {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    gap: 10px; /* Adjust the gap value as needed */
+    width: 90%; /* Adjust width as needed */
+    margin: auto;
+  }
+  .gray-box-1 {
+    width: 120px;
+    height: 120px;
+    margin-left: 5%;
+    margin-top: -5%;
+    background-color: #858CAB;
+    border: 1pt solid #333439;
+    position: absolute;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.4);
+  }
+  
+  .overlay-box {
+    background-color: #9B813A;
+    width: 48%;
+    height: 150px;
+    margin-left: 8%;
+    margin-top: -3%;
+    margin-bottom: 3%;
+    padding: 40px;
+    padding-left: 80px;
+    border: 1pt solid #8492A6;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.4);
+  }
+  
+  .overlay-box p {
+
+    color: white;
+    font-size: 40px;
+    padding: 10px;
+    background-color: #9B813A;
+    position: absolute;
+    
+  }
+  
+  .task-column {
+    border: 1px solid white;
+    padding: 20px;
+    width: 100%;
+  }
+
+  .button-column{
+    padding: 10px;
+    border: 1px solid white;
+  }
+  
+  .completed-tasks {
+    background-color: #858CAB;
+  }
+  
+  .add-delete-tasks {
+    background-color: #858CAB;
+    width: 40%;
+    text-align: center;
+    margin: auto auto;
+  }
+  
+  .add-delete-tasks button {
+    display: block;
+    margin: 10px auto;
+    margin-bottom: 30px;
+    padding: 10px;
+    font-size: 14pt ;
+    background-color:#525668;
+    color: aliceblue;
+  }
+  
+  .to-do-tasks {
+    background-color: #858CAB;
+  }
+
+  h2{
+    text-align: center;
+    font-family: 'Josefin Slab', serif;
+    background-color: #858CAB;
+    font-size: 22pt;
+    color: aliceblue;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  ul li {
+    background-color: #2B2D33; 
+    border-bottom: 10px solid #858CAB; 
+    padding: 20px; 
+    color: aliceblue; 
+    font-size: 16pt; 
+
+    
+  }
+

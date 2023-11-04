@@ -1,0 +1,119 @@
+.contact-container {
+    margin-top: 20px;
+    align-content: center;
+    display: flex;
+  }
+  .material-icons{
+    margin-left: 110px;
+    color: #2B2D33;
+    margin-top: 0%;
+    background-color: #858CAB;
+    font-size: 60px;
+  }
+  
+  .contact-box {
+    padding: 20px;
+    margin: auto auto;
+    width: 80%;
+    height: 100%;
+    background-color: #2B2D33;
+    border: 2pt solid #8492A6;
+    box-shadow: 0px 8px 16px rgb(0, 0, 0);
+    color: #fff;
+    display: flex;
+    position: relative;
+  }
+  .map-overlay {
+    background-color: #3D4D8A;
+    border: 3px solid rgb(19, 27, 142);
+    box-shadow: 0px 8px 16px rgb(0, 0, 0);
+    position: absolute;
+    margin-left: 19%;
+    margin-top: 12%;
+}
+.contact-us-box{
+    width: 30%;
+    height: 400px;
+    padding: 20px;
+    border: 1pt solid white;
+    margin: auto auto;
+    margin-top: 7%;
+    box-shadow: 0px 8px 16px rgb(69, 70, 71);
+}
+.address-box {
+    text-align: right;
+    width: 38%;
+    height: 400px;
+    padding: 20px;
+    padding-right: 40px;
+    border: 1pt solid white;
+    margin: auto auto;
+    margin-top: 1%;
+    box-shadow: 0px 8px 16px rgb(69, 70, 71);
+}
+
+h1 {
+    font-size: 30pt;
+}
+
+h3{
+    font-size: 14pt;
+}
+
+  h3, h1, p {
+    background-color: #858CAB;
+    font-family: 'Josefin Slab', serif;;
+  }
+  .contact-info{
+    background-color: #3D4D8A;
+  }
+
+  .contact-info-box{
+    padding: 10px;
+    border: 2pt solid white;
+    position: relative;
+    width: 110%;
+    margin-top: 10px;
+    margin-left: 100px;
+  }
+
+  .gold-box-1 {
+    width: 150px;
+    height: 550px;
+    margin-left: 6%;
+    margin-top: -5%;
+    background-color: #FFC82C;
+    border: 1pt solid #858CAB;
+    position: absolute;
+    box-shadow: 0px 8px 16px rgba(217, 216, 221, 0.4);
+  }
+  .gold-circle-1 {
+    width: 100px;
+    height: 100px;
+    margin-left: 88%;
+    margin-top: 28%;
+    background-color: #FFC82C;
+    border-radius: 50%;
+    position: absolute;
+    box-shadow: 0px 8px 16px rgba(175, 182, 216, 0.4);
+  }
+  .blue-circle {
+    width: 120px;
+    height: 120px;
+    margin-left: 12%;
+    margin-top: -3%;
+    background-color: #0B2BA1;
+    border-radius: 50%;
+    position: absolute;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.4);
+  }
+
+  a{
+    color: #fff;
+    text-decoration: none;
+  }
+
+  a:hover{
+    text-decoration: underline;
+  }
+  

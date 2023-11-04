@@ -1,8 +1,8 @@
 /**
  * Title: sign-in.guard.ts
  * Author: William Austin
- * Date: 23 September 2023
- * Description: Sign In Route Guard
+ * Date: 03 November 2023
+ * Description: Sign In RouteGuard
  */
 import { Injectable } from '@angular/core';
 import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree } from '@angular/router';

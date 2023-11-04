@@ -7,6 +7,7 @@
 // imports statements
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -26,12 +27,14 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
+import { MatDialogModule } from '@angular/material/dialog';
 
 import { SignInComponent } from './sign-in/sign-in.component';
 import { TasksComponent } from './tasks/tasks.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 
 import { CookieService } from 'ngx-cookie-service';
+import { TasksDialogComponent } from './tasks-dialog/tasks-dialog.component';
 
 
 
@@ -47,7 +50,8 @@ import { CookieService } from 'ngx-cookie-service';
     TasksComponent,
     NotFoundComponent,
     AboutComponent,
-    ContactComponent
+    ContactComponent,
+    TasksDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -60,6 +64,8 @@ import { CookieService } from 'ngx-cookie-service';
     MatCardModule,
     FormsModule, 
     ReactiveFormsModule,
+    MatDialogModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,1 +1,26 @@
-<h1>tasks works!</h1>
+<div class="gray-box-1"></div>
+<div class="overlay-box">
+  <p>Hey {{ firstName }}! Let's get to Work!</p>
+</div>
+<div class="container">
+  <div class="task-column to-do-tasks">
+    <h2>To-Do List</h2>
+    <div *ngIf="toDoTasks.length === 0; else tasksExist">
+      <p class="tasks" style="background-color: #2B2D33; color: aliceblue; padding: 20px; font-size: 16pt; margin-bottom: 20px;">No tasks yet, let's add some!</p>
+    </div>
+    <ng-template #tasksExist>
+      <ul>
+        <li *ngFor="let task of toDoTasks">
+          {{ task.description }}
+        </li>
+      </ul>
+    </ng-template>
+  </div>
+  <div class="button-column add-delete-tasks">
+    <button (click)="openDialog()">Add Task</button>
+    <button>Delete Task</button>
+  </div>
+  <div class="task-column completed-tasks">
+    <h2>Completed</h2>
+  </div>
+</div>

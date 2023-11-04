@@ -1,0 +1,11 @@
+<div class="card">
+    <div class="new-task-form">
+        <h1>Create New Task</h1>
+        <div *ngIf="showError" class="message-error">
+            Please input a task to add to the "To-Do" List.
+        </div>
+        <input class="input" type="text" placeholder="Enter task..." [(ngModel)]="newTask">
+        <br>
+        <button (click)="submitTask()">Add Task</button>
+    </div>
+</div>

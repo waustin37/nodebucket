@@ -13,7 +13,9 @@ const swaggerUI = require('swagger-ui-express');
 const swaggerJS = require('swagger-jsdoc');
 const http = require('http');
 const mongoose = require('mongoose');
+const cors = require('cors');
 const employeeAPI = require('./routes/employee-routes');
+
 
 // Create the Express app
 let app = express()
@@ -31,6 +33,7 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 app.use(express.static(path.join(__dirname, '../dist/nodebucket')))
 app.use('/', express.static(path.join(__dirname, '../dist/nodebucket')))
+app.use(cors({ origin: 'http://localhost:4200' }));
 
 const options = {
   definition: {
