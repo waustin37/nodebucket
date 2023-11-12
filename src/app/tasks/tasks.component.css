@@ -30,7 +30,6 @@
   }
   
   .overlay-box p {
-
     color: white;
     font-size: 40px;
     padding: 10px;
@@ -94,8 +93,28 @@
     border-bottom: 10px solid #858CAB; 
     padding: 20px; 
     color: aliceblue; 
-    font-size: 16pt; 
-
-    
+    font-size: 16pt;  
   }
 
+  .delete-button {
+      position: absolute;
+      margin-top: -4%;
+      margin-left: 88%;
+      background-color: rgba(182, 3, 3, 0.601);
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 15px;
+      height: 15px;
+      font-weight: bold;
+      font-size: 8pt;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+  }
+  li {
+    position: relative;
+    margin-bottom: 10px;
+    background-color: #2B2D33; 
+  }

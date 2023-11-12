@@ -1,8 +1,8 @@
 /**
  * Title: sign-in.service.ts
  * Author: William Austin
- * Date: 23 September 2023
- * Description: Sign In Service for GPA Calculator
+ * Date: 03 November 2023
+ * Description: Sign In Service for NodeBucket
  */
 
 import { Injectable } from '@angular/core';

@@ -6,14 +6,15 @@
  */
 import { Component, OnDestroy } from '@angular/core';
 import { SignOutService } from '../sign-out.service';
-import { SignInService } from '../sign-in.service';
 import { MatDialog } from '@angular/material/dialog';
 import { TasksService } from '../tasks.service';
 import { TasksDialogComponent } from '../tasks-dialog/tasks-dialog.component';
 import { CookieService } from 'ngx-cookie-service';
 
 interface Task {
+  taskId: string;
   description: string;
+  isCompletedTask?: boolean;
 }
 
 @Component({
@@ -24,41 +25,45 @@ interface Task {
 export class TasksComponent implements OnDestroy {
   employeeId: string;
   firstName: string;
+  tasks: Task[] = [];
+  doneTasks: Task[] = [];
+  currentItem: any;
 
   constructor(
     private signOutService: SignOutService, 
-    private signInService: SignInService,
     public dialog: MatDialog, 
     private tasksService: TasksService,
-    private cookieService: CookieService
+    private cookieService: CookieService,
   ) {}
 
   ngOnInit(): void {
-    this.fetchTasks();
+    this.tasksService.todoTasks$.subscribe(todoTasks => {
+      this.tasks = todoTasks;
+    });
+
+    this.tasksService.doneTasks$.subscribe(doneTasks => {
+      this.doneTasks = doneTasks;
+    });
+    this.employeeId = this.cookieService.get('session_user');
+    this.tasksService.fetchTasks(this.employeeId);
+    this.firstName = this.cookieService.get('name');
   }
-
-  async fetchTasks() {
-    this.employeeId = this.cookieService.get('session_user'); // Use the 'session_user' cookie
-    this.tasksService.setEmployeeId(this.employeeId);
-
-    if (this.signInService.employee) {
-      this.firstName = this.signInService.employee.firstName;
   
-      // Fetch tasks using employee ID
-      const res = await fetch(`http://localhost:3000/api/employees/${this.employeeId}/todoTasks`);
-      const data = await res.json();
-  
-      const todoTasks: Task[] = data.todoTasks;
-  
-      console.log(data);
-      console.log(todoTasks);
-      console.log(this.firstName);
-  
-      if (Array.isArray(todoTasks)) {
-        this.tasksService.setTasks(todoTasks);
-      }
+  deleteTask(taskId: string, isCompletedTask: boolean = false): void {
+    const confirmDelete = confirm("Are you sure you want to delete this task?");
+    if (confirmDelete) {
+      this.tasksService.deleteTask(this.employeeId, taskId, isCompletedTask).subscribe(
+        (response) => {
+          console.log(response);
+          this.tasksService.fetchTasks(this.employeeId); 
+        },
+        (error) => {
+          console.error(error);
+        }
+      );
     }
   }
+  
   openDialog(): void {
     const dialogRef = this.dialog.open(TasksDialogComponent, {
       disableClose: true,
@@ -66,19 +71,50 @@ export class TasksComponent implements OnDestroy {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      if (result) {
-        this.tasksService.addTask(result);
-      }
+      if (result === 'confirm') {
+          this.tasksService.fetchTasks(this.employeeId); // Refresh the task list after addition
+          console.log('Task List Refreshed')
+        } (error) => {
+            console.error(error);
+        }
     });
   }
 
-  get toDoTasks(): Task[] {
-    return this.tasksService.getToDoTasks();
+  onDragStart(task: any) {
+    console.log('onDragStart');
+    this.currentItem = task;
+  }  
+
+  onDrop(event: any, taskId: string) {
+    event.preventDefault();
+    console.log('onDragDrop')
+  
+    if (this.currentItem) {
+      const record = this.tasks.find(x => x.taskId == this.currentItem.taskId);
+  
+      if (record != undefined) {
+        this.tasksService.moveTaskToCompleted(this.employeeId, this.currentItem.taskId).subscribe(
+          (response) => {
+            console.log(response);
+            // Refresh the task lists after moving the task
+            this.tasksService.fetchTasks(this.employeeId);
+          },
+          (error) => {
+            console.error(error);
+          }
+        );
+      }
+      this.currentItem = null;
+    }
+  }
+
+  onDragOver(event: any){
+    console.log('onDragOver')
+    event.preventDefault();
   }
 
   ngOnDestroy() {
-    // Call the sign-out method when leaving the "tasks" page
     this.signOutService.signOut();
-    console.log('User signed out'); // Add console log here
+    console.log('User signed out');
   }
 }

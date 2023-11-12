@@ -8,7 +8,7 @@
 import { Component } from '@angular/core';
 import { TasksService } from '../tasks.service';
 import { MatDialogRef } from '@angular/material/dialog';
-import { HttpClient } from '@angular/common/http';
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-tasks-dialog',
@@ -18,26 +18,33 @@ import { HttpClient } from '@angular/common/http';
 export class TasksDialogComponent {
   newTask: string = '';
   showError: boolean = false;
+  employeeId: string = '';
 
   constructor(
     private tasksService: TasksService,
-    private dialogRef: MatDialogRef<TasksDialogComponent>,
-    private http: HttpClient // Inject HttpClient
+    private cookieService: CookieService,
+    private dialogRef: MatDialogRef<TasksDialogComponent>
   ) {}
 
   submitTask() {
     if (this.newTask.trim() !== '') {
-      this.http.post(`http://localhost:3000/api/employees/${this.tasksService.employeeId}/todoTasks`, {
-        description: this.newTask // Pass the description as the body
-      }).subscribe(
-        response => {
-          this.tasksService.addTask(this.newTask); // If the API call is successful, add the task
-          this.dialogRef.close(); // Close the dialog
-        },
-        error => {
-          console.log(error); // Log the error
-        }
-      );
+      this.employeeId = this.cookieService.get('session_user');
+      console.log(this.employeeId);
+       // Set the employeeId from the service
+      if (this.employeeId) {
+        this.tasksService.addTask(this.employeeId, this.newTask).subscribe(
+          () => {
+            this.dialogRef.close(); 
+            this.tasksService.fetchTasks(this.employeeId);
+            console.log('Task Added Successfully');
+          },
+          error => {
+            console.error('Error adding task:', error); // Log the error
+          }
+        );
+      } else {
+        console.error('No employeeId found.'); // Log error if employeeId is not set
+      }
     } else {
       this.showError = true;
     }

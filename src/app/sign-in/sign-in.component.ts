@@ -8,7 +8,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { CookieService } from 'ngx-cookie-service';
 import { SignInService } from '../sign-in.service';
 
 @Component({
@@ -23,7 +22,6 @@ export class SignInComponent implements OnInit {
 
   constructor(
     private router: Router,
-    private cookieService: CookieService,
     private fb: FormBuilder,
     private signInService: SignInService
   ) {}
