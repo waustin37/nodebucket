@@ -9,6 +9,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
+//Define the Task schema to be used within the Employee Schema
 let taskSchema = new Schema({
   taskId: { type: Schema.Types.ObjectId, auto: true },
   description: { type: String, required: true },
