@@ -28,8 +28,8 @@ mongoose.connect(CONN).then(() => {
     console.log('MongoDB Error: ' + err.message);
 });
 
-const port = normalizePort(process.env.PORT || '3000');
-app.set('port', port);
+const PORT = process.env.PORT || 3000;
+
 
 // Configure the app
 app.use(express.json())
