@@ -9,6 +9,7 @@
   .footer a {
     text-decoration: none;
     color: #ffffff; /* Text color matching the background of the main body */
+    background-color: #495584;
   }
   
   .footer a:hover {

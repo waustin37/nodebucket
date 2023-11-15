@@ -7,7 +7,6 @@
 
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
 import { CookieService } from 'ngx-cookie-service';
 
 @Injectable({
@@ -20,7 +19,7 @@ export class SignInService {
   constructor(private http: HttpClient, private cookieService: CookieService) {}
 
   async findEmployeeById(employeeId: string): Promise<void> {
-    const response = await fetch(`http://localhost:3000/api/employees/${employeeId}`)
+    const response = await fetch(`https://localhost:3000/api/employees/${employeeId}`)
     const employee = await response.json()
 
     this.cookieService.set('session_user', employeeId.toString(), 1);

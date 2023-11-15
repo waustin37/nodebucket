@@ -39,7 +39,7 @@ export class TasksService {
 
 //Fetch Tasks
   fetchTasks(employeeId: string): void {
-    this.http.get<any>(`http://localhost:3000/api/employees/${employeeId}/todoTasks`)
+    this.http.get<any>(`https://localhost:3000/api/employees/${employeeId}/todoTasks`)
       .subscribe(data => {
         const todoTasks: Task[] = data.todoTasks;
         const doneTasks: Task[] = data.doneTasks;
@@ -51,17 +51,17 @@ export class TasksService {
   }
 
   addTask(employeeId: string, taskDescription: string): Observable<any> {
-    return this.http.post<any>(`http://localhost:3000/api/employees/${employeeId}/todoTasks`, { description: taskDescription });
+    return this.http.post<any>(`https://localhost:3000/api/employees/${employeeId}/todoTasks`, { description: taskDescription });
   }
 
   deleteTask(employeeId: string, taskId: string, isCompletedTask: boolean = false): Observable<any> {
     const endpoint = isCompletedTask ? 'doneTasks' : 'todoTasks';
-    return this.http.delete<any>(`http://localhost:3000/api/employees/${employeeId}/${endpoint}/${taskId}`);
+    return this.http.delete<any>(`https://localhost:3000/api/employees/${employeeId}/${endpoint}/${taskId}`);
   }
 
   //How the tasks move from To-Do to Completed
   moveTaskToCompleted(employeeId: string, taskId: string): Observable<any> {
-    return this.http.put<any>(`http://localhost:3000/api/employees/${employeeId}/todoTasks/${taskId}`, {});
+    return this.http.put<any>(`https://localhost:3000/api/employees/${employeeId}/todoTasks/${taskId}`, {});
   }
 
 
