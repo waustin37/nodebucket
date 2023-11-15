@@ -36,6 +36,8 @@ export class TasksComponent implements OnDestroy {
     private cookieService: CookieService,
   ) {}
 
+  //What happens when we open the tasks page. We get the Employee Id from the Cookie, 
+  //and we populate the todo list
   ngOnInit(): void {
     this.tasksService.todoTasks$.subscribe(todoTasks => {
       this.tasks = todoTasks;
@@ -49,6 +51,7 @@ export class TasksComponent implements OnDestroy {
     this.firstName = this.cookieService.get('name');
   }
   
+
   deleteTask(taskId: string, isCompletedTask: boolean = false): void {
     const confirmDelete = confirm("Are you sure you want to delete this task?");
     if (confirmDelete) {
@@ -64,6 +67,7 @@ export class TasksComponent implements OnDestroy {
     }
   }
   
+  //Once we hit "add task" it will open the Dialog Box for the user to add Tasks
   openDialog(): void {
     const dialogRef = this.dialog.open(TasksDialogComponent, {
       disableClose: true,
@@ -80,6 +84,7 @@ export class TasksComponent implements OnDestroy {
     });
   }
 
+  //Drag and Drop Functionality 
   onDragStart(task: any) {
     console.log('onDragStart');
     this.currentItem = task;
@@ -113,6 +118,7 @@ export class TasksComponent implements OnDestroy {
     event.preventDefault();
   }
 
+  //Automatic Sign Out
   ngOnDestroy() {
     this.signOutService.signOut();
     console.log('User signed out');

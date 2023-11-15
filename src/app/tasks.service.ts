@@ -26,14 +26,18 @@ export class TasksService {
 
   constructor(private http: HttpClient) {}
 
+
+// Sets employee ID to a string
   setEmployeeId(id: string): void {
     this.employeeId = id;
   }
 
+// Gets employee ID
   getEmployeeId(): string {
     return this.employeeId;
   }
 
+//Fetch Tasks
   fetchTasks(employeeId: string): void {
     this.http.get<any>(`http://localhost:3000/api/employees/${employeeId}/todoTasks`)
       .subscribe(data => {
@@ -55,6 +59,7 @@ export class TasksService {
     return this.http.delete<any>(`http://localhost:3000/api/employees/${employeeId}/${endpoint}/${taskId}`);
   }
 
+  //How the tasks move from To-Do to Completed
   moveTaskToCompleted(employeeId: string, taskId: string): Observable<any> {
     return this.http.put<any>(`http://localhost:3000/api/employees/${employeeId}/todoTasks/${taskId}`, {});
   }

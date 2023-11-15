@@ -71,8 +71,6 @@ app.use(function(err, req, res, next) {
  */
 
 
-const http = require('http');
-
 /**
  * Get port from environment and store in Express.
  */
