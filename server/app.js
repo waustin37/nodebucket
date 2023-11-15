@@ -28,6 +28,9 @@ mongoose.connect(CONN).then(() => {
     console.log('MongoDB Error: ' + err.message);
 });
 
+const port = normalizePort(process.env.PORT || '3000');
+app.set('port', port);
+
 // Configure the app
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
