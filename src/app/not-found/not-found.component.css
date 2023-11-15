@@ -1,7 +1,7 @@
 .image{
     margin-left: 12%;
     margin-top: -1%;
-    height: 300px;
+    height: 400px;
     position: absolute;
 }
 .message {
@@ -19,7 +19,7 @@
     line-height: 1.6;
 }
 .gray-box-1{
-    height: 450px;
+    height: 300px;
     width: 650px;
     background-color: #858CAB;
     border: 1pt solid  rgb(223, 222, 234);
