@@ -19,7 +19,7 @@ export class SignInService {
   constructor(private http: HttpClient, private cookieService: CookieService) {}
 
   async findEmployeeById(employeeId: string): Promise<void> {
-    const response = await fetch(`https://localhost:3000/api/employees/${employeeId}`)
+    const response = await fetch(`http://localhost:3000/api/employees/${employeeId}`)
     const employee = await response.json()
 
     if (!response.ok) {
