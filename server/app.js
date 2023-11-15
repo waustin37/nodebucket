@@ -70,7 +70,7 @@ app.use(function(err, req, res, next) {
  * Module dependencies.
  */
 
-const app = require('../server/app');
+
 const http = require('http');
 
 /**
