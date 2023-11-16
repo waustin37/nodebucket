@@ -34,7 +34,7 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 app.use(express.static(path.join(__dirname, '../dist/nodebucket')))
 app.use('/', express.static(path.join(__dirname, '../dist/nodebucket')))
-app.use(cors({ origin: 'http://localhost:3000' }));
+app.use(cors({ origin: 'http://localhost:4200' }));
 
 const options = {
   definition: {
