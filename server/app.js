@@ -19,6 +19,7 @@ const employeeAPI = require('./routes/employee-routes');
 
 // Create the Express app
 let app = express()
+app.use(cors());
 
 //Create MongoDB Connection
 const CONN = 'mongodb+srv://waustin37:wa16171617@cluster0.hkbvlmn.mongodb.net/nodebucketDB?retryWrites=true&w=majority';
@@ -34,7 +35,7 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 app.use(express.static(path.join(__dirname, '../dist/nodebucket')))
 app.use('/', express.static(path.join(__dirname, '../dist/nodebucket')))
-app.use(cors());
+
 
 const options = {
   definition: {
