@@ -1,32 +1,43 @@
+<!--
+ * Title: tasks.component.html
+ * Author: William Austin
+ * Date: 10/26/2023
+ * Description - HTML Page working with Angular Task Component to Display To-Do and Done Tasks
+ */
+ -->
 <div class="gray-box-1"></div>
 <div class="overlay-box">
+
+  <!--This Should Display the First Name of whichever employee has signed in-->
   <p>Hey {{ firstName }}! Let's get to Work!</p>
 </div>
 <div class="container">
 
-  <div class="task-column to-do-tasks" (dragover)="onDragOver($event)" (drop)="onDrop($event, 'completed')">
-    
-    <h2>To-Do List</h2>
-    <div style="background-color: #858CAB;" class="to-do" *ngIf="tasks && tasks.length > 0; else noTasks">
-      <ul style="background-color: #858CAB;">
-        <li *ngFor="let task of tasks" draggable="true" (dragstart)="onDragStart(task)">
-          {{ task.description }}
-          <button class="delete-button" (click)="deleteTask(task.taskId)">X</button>
-        </li>
-      </ul>
-    </div>
+  <!--The To-Do List-->
+<div class="task-column to-do-tasks" (dragover)="onDragOver($event)" (drop)="onDrop($event, 'todo')">
+  <h2>To-Do List</h2>
+  <div style="background-color: #858CAB;" class="to-do" *ngIf="tasks && tasks.length > 0; else noTasks">
+    <ul style="background-color: #858CAB;">
+      <li *ngFor="let task of tasks; let i = index" draggable="true" (dragstart)="onDragStart(task)">
+        {{ task.description }}
+        <button class="delete-button" (click)="deleteTask(task.taskId)">X</button>
+      </li>
+    </ul>
+  </div>
 
+    <!--If no tasks exist this is what comes up-->
     <ng-template #noTasks>
       <p class="tasks" style="background-color: #2B2D33; color: aliceblue; padding: 20px; font-size: 16pt; margin-bottom: 20px;">No tasks yet, let's add some!</p>
     </ng-template>
+</div>
 
-  </div>
-
+<!--Button to Add tasks-->
   <div class="button-column add-delete-tasks">
     <button (click)="openDialog()">Add Task</button> 
   </div>
 
-  <div class="task-column completed-tasks" (drop)="onDrop($event, 'completed')">
+  <!--Completed Tasks Column-->
+  <div class="task-column completed-tasks" (dragover)="onDragOver($event)" (drop)="onDrop($event, 'completed')">
     <h2>Completed</h2>
     <ul style="background-color: #858CAB;">
       <li *ngFor="let task of doneTasks" draggable="true" (dragover)="onDragOver($event)" >

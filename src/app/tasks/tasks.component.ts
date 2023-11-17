@@ -34,6 +34,7 @@ export class TasksComponent implements OnDestroy {
     public dialog: MatDialog, 
     private tasksService: TasksService,
     private cookieService: CookieService,
+
   ) {}
 
   //What happens when we open the tasks page. We get the Employee Id from the Cookie, 
@@ -84,21 +85,35 @@ export class TasksComponent implements OnDestroy {
     });
   }
 
+  private draggedTask: Task | null = null;
   //Drag and Drop Functionality 
   onDragStart(task: any) {
     console.log('onDragStart');
-    this.currentItem = task;
+    this.draggedTask = task;
   }  
 
-  onDrop(event: any, taskId: string) {
+  onDrop(event: any, targetStatus: string) {
     event.preventDefault();
-    console.log('onDragDrop')
-  
-    if (this.currentItem) {
-      const record = this.tasks.find(x => x.taskId == this.currentItem.taskId);
-  
-      if (record != undefined) {
-        this.tasksService.moveTaskToCompleted(this.employeeId, this.currentItem.taskId).subscribe(
+    console.log('onDragDrop');
+
+    if (this.draggedTask) {
+      // Check if the drop target is the same as the source
+      if (targetStatus === 'todo' && !this.draggedTask.isCompletedTask) {
+        // If the target is "To-Do" and the source was also "To-Do", re-order the tasks
+        const index = this.tasks.indexOf(this.draggedTask);
+        this.tasks.splice(index, 1); // Remove the task from the source
+        const dropIndex = this.getDropIndex(event);
+        this.tasks.splice(dropIndex, 0, this.draggedTask); // Insert the task at the new position
+      } else if (targetStatus === 'completed' && this.draggedTask.isCompletedTask) {
+        // If the target is "Completed" and the source was also "Completed", re-order the tasks
+        const index = this.doneTasks.indexOf(this.draggedTask);
+        this.doneTasks.splice(index, 1); // Remove the task from the source
+        const dropIndex = this.getDropIndex(event);
+        this.doneTasks.splice(dropIndex, 0, this.draggedTask); // Insert the task at the new position
+      } else {
+        // If the target status is different, perform the existing moveTaskToCompleted logic
+        const record = targetStatus === 'completed' ? this.doneTasks : this.tasks;
+        this.tasksService.moveTaskToCompleted(this.employeeId, this.draggedTask.taskId).subscribe(
           (response) => {
             console.log(response);
             // Refresh the task lists after moving the task
@@ -109,7 +124,8 @@ export class TasksComponent implements OnDestroy {
           }
         );
       }
-      this.currentItem = null;
+
+      this.draggedTask = null; // Reset draggedTask
     }
   }
 
@@ -117,6 +133,14 @@ export class TasksComponent implements OnDestroy {
     console.log('onDragOver')
     event.preventDefault();
   }
+
+// Helper function to determine the drop index based on mouse position
+private getDropIndex(event: any): number {
+  const rect = event.currentTarget.getBoundingClientRect();
+  const mouseY = event.clientY - rect.top;
+  const itemHeight = 40;
+  return Math.floor(mouseY / itemHeight);
+}
 
   //Automatic Sign Out
   ngOnDestroy() {
